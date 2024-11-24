@@ -7,11 +7,15 @@ import { signInSchema } from "@/lib/schema";
 import { FormErrorMessage } from "@/components/form/FormErrorMessage";
 import { CustomInput } from "@/components/form/CustomInput";
 import { FormSubmit } from "@/components/form/FormSubmit";
+import { DEV_USER_PASSWORD } from "@/lib/constants";
 
 export const SignInForm = () => {
   const { action, isPending, form } = useBasicConform<typeof signInSchema>({
     formAction: signInAction,
     schema: signInSchema,
+    defaultValue: {
+      password: DEV_USER_PASSWORD,
+    },
   });
 
   return (

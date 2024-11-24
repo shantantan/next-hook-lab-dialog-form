@@ -1,0 +1,1 @@
+export const DEV_USER_PASSWORD = process.env.NEXT_PUBLIC_DEV_USER_PASSWORD;

@@ -8,11 +8,16 @@ import { FormErrorMessage } from "@/components/form/FormErrorMessage";
 import { CustomInput } from "@/components/form/CustomInput";
 import { CustomCheckbox } from "@/components/form/CustomCheckbox";
 import { FormSubmit } from "@/components/form/FormSubmit";
+import { DEV_USER_PASSWORD } from "@/lib/constants";
 
 export const SignUpForm = () => {
   const { action, isPending, form } = useBasicConform<typeof signUpSchema>({
     formAction: signUpAction,
     schema: signUpSchema,
+    defaultValue: {
+      password: DEV_USER_PASSWORD,
+      confirmPassword: DEV_USER_PASSWORD,
+    },
   });
 
   return (

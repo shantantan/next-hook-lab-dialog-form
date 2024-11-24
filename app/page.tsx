@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Session } from "next-auth";
 import { auth } from "@/auth";
+import { SignOut } from "@/components/SignOut";
 
 const SessionDisplay = ({ session }: { session: Session | null }) => {
   if (!session) {
@@ -34,6 +35,10 @@ const Home = async () => {
 
       <div className="mt-16">
         <SessionDisplay session={session} />
+      </div>
+
+      <div className="mt-16">
+        <SignOut />
       </div>
     </main>
   );
