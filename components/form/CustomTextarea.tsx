@@ -9,10 +9,10 @@ import { cn } from "@/lib/utils";
 interface Props {
   name: string;
   label: string;
-  row?: number;
+  rows?: number;
 }
 
-export const CustomTextarea = ({ name, label, row = 8 }: Props) => {
+export const CustomTextarea = ({ name, label, rows = 8 }: Props) => {
   const [meta] = useField(name);
 
   return (
@@ -28,6 +28,7 @@ export const CustomTextarea = ({ name, label, row = 8 }: Props) => {
         {...getTextareaProps(meta)}
         key={meta.key}
         defaultValue={meta.value as string}
+        rows={rows}
         className={cn({
           "border-destructive focus-visible:ring-destructive bg-destructive-foreground dark:text-background":
             meta.errors,

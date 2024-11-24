@@ -15,14 +15,19 @@ const UpdateBioDialogFormContext = createContext<ContextType | null>(null);
 
 interface Props {
   children: React.ReactNode;
+  initialBio: string | null;
 }
 
-export const UpdateBioDialogFormProvider = ({ children }: Props) => {
-  const { handleSubmission } = useUpdateBioContext();
+export const UpdateBioDialogFormProvider = ({
+  children,
+  initialBio,
+}: Props) => {
+  const { handleSubmission, data } = useUpdateBioContext();
   const dialogConform = useDialogConform<typeof updateBioSchema>({
     handleSubmission,
     formAction: updateBioAction,
     schema: updateBioSchema,
+    defaultValue: { bio: data ? data : initialBio },
   });
 
   return (
